@@ -1,0 +1,80 @@
+name,start,end
+Berlin,10000,15000
+Hamburg,20095,22769
+München,80000,83000
+Köln,50000,52000
+Frankfurt am Main,60000,61000
+Stuttgart,70173,70629
+Düsseldorf,40210,40721
+Dortmund,44135,44388
+Essen,45127,45359
+Leipzig,04103,04357
+Bremen,28195,28215
+Dresden,01067,01465
+Hannover,30159,30669
+Nürnberg,90402,90491
+Duisburg,47051,47279
+Bochum,44787,44894
+Wuppertal,42000,43000
+Bielefeld,33000,34000
+Bonn,53000,54000
+Münster,48000,49000
+Karlsruhe,76000,77000
+Mannheim,68000,69000
+Augsburg,86000,87000
+Wiesbaden,65000,66000
+Gelsenkirchen,45000,46000
+Mönchengladbach,41000,42000
+Braunschweig,38000,39000
+Chemnitz,09111,09247
+Kiel,24000,25000
+Aachen,52000,53000
+Halle (Saale),06000,07000
+Magdeburg,39000,40000
+Freiburg im Breisgau,79000,80000
+Krefeld,47000,48000
+Lübeck,23000,24000
+Oberhausen,46000,47000
+Erfurt,99000,99999
+Mainz,55000,56000
+Rostock,18000,19000
+Kassel,34000,35000
+Hagen,58000,59000
+Hamm,59000,60000
+Saarbrücken,66000,67000
+Mülheim an der Ruhr,45000,46000
+Potsdam,14000,15000
+Ludwigshafen am Rhein,67000,68000
+Oldenburg (Oldb),26000,27000
+Leverkusen,51000,52000
+Osnabrück,49000,50000
+Solingen,42000,43000
+Heidelberg,69000,70000
+Herne,44000,45000
+Neuss,41000,42000
+Darmstadt,64000,65000
+Paderborn,33000,34000
+Regensburg,93000,94000
+Ingolstadt,85000,86000
+Würzburg,97000,98000
+Fürth,90000,91000
+Wolfsburg,38000,39000
+Offenbach am Main,63000,64000
+Ulm,89000,90000
+Heilbronn,74000,75000
+Pforzheim,75000,76000
+Göttingen,37000,38000
+Bottrop,46000,47000
+Trier,54000,55000
+Recklinghausen,45000,46000
+Reutlingen,72000,73000
+Bremerhaven,27000,28000
+Koblenz,56000,57000
+Bergisch Gladbach,51000,52000
+Jena,07000,08000
+Remscheid,42000,43000
+Erlangen,91000,92000
+Moers,47000,48000
+Siegen,57000,58000
+Hildesheim,31000,32000
+Salzgitter,38000,39000
