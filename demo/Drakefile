@@ -1,0 +1,40 @@
+HMAC_KEY:="scoKSvUJ5Z38aLah"
+
+; create toy data set of 100 legitimate orders
+toy_legitimate.json, %create_toy_data <- [-timecheck]
+    abbo_cli.py generate -c 500 -n 100 -p 0 -s 8015 $OUTPUT
+
+; add fraud patterns to data set
+toy_data.json, %add_fraud <- toy_legitimate.json
+    head -n 50 $INPUT > $OUTPUT
+    ./add_toy_fraud.py $INPUT | tail -n 50 >> $OUTPUT
+
+; split data into train and test set
+train.json, test.json, %split_data <- toy_data.json
+    cat $INPUT | gshuf > t.tmp
+    head -n 50 t.tmp > $OUTPUT0
+    tail -n 50 t.tmp > $OUTPUT1
+    rm t.tmp
+
+; pseudonymize data set
+train.dat, test.dat, mapping.log, %pseudonymize <- train.json, test.json
+    abbo_cli.py pseudonymize -m 4000 -d colored -n 2 -k 3 -t keyed -e $[HMAC_KEY] --mapping_file $OUTPUT2 $INPUT0 $OUTPUT0
+    abbo_cli.py pseudonymize -m 4000 -d colored -n 2 -k 3 -t keyed -e $[HMAC_KEY] $INPUT1 $OUTPUT1
+
+; convert to LIBSVM format
+train.libsvm, test.libsvm, %convert_libsvm <- train.dat, test.dat
+    abbo_cli.py convert $INPUT0 $OUTPUT0
+    abbo_cli.py convert $INPUT1 $OUTPUT1
+
+; Note: requires LIBLINEAR
+; train libsvm model with standard parameters
+toy.model, %train_model <- train.libsvm
+    train $INPUT $OUTPUT
+
+; predict classification scores
+results.csv, patterns.csv, %predict <- test.libsvm, toy.model, mapping.log
+    abbo_cli.py predict --mapping_and_patterns_file $INPUT2 $OUTPUT1 $INPUT0 -m toy.model -o $OUTPUT0
+
+; remove labels from test data
+unlabeled.json, %unlabel <- test.json
+    cat test.json | jq -cr 'del(.invoiceFraudLabel)' > $OUTPUT
