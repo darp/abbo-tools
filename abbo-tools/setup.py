@@ -16,7 +16,7 @@ extensions = [
 setup(
     name="abbo_tools",
 
-    version="0.3.3",
+    version="0.3.4",
 
     author="Daniel Arp, Alwin Maier",
     author_email="d.arp@tu-bs.de, alwin.maier@tu-bs.de",
@@ -37,13 +37,13 @@ setup(
     },
 
     install_requires=[
-        'numpy == 1.13.3',
-        'scipy == 1.0.0',
-        'scikit-learn == 0.18.1',
-        'simplejson == 3.8.2',
-        'mmh3 == 2.3.1',
-        'bitarray == 0.8.1',
-        'progressbar == 2.3'
+        'numpy >= 1.19',
+        'scipy >= 1.0.0',
+        'scikit-learn >= 0.18.1',
+        'simplejson >= 3.8.2',
+        'mmh3 >= 2.3.1',
+        'bitarray >= 0.8.1',
+        'progressbar >= 2.3'
     ],
     ext_modules=cythonize(extensions)
 )
